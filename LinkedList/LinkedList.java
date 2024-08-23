@@ -10,7 +10,29 @@ public class LinkedList {
             this.next = null;
         }
     }
-    public static void main(String args[]){
 
+    public static Node head;
+    public static Node tail;
+
+    public void addFirst(int data){
+        // step1 = create newNode 
+        Node newNode = new Node(data);
+
+        if(head == null){
+            head = tail = newNode;
+            return;
+        }
+
+        // step2 - newNode's next = head
+        newNode.next = head;
+
+        //step3 - head = newNode
+        head = newNode;
+    }
+
+    public static void main(String args[]){
+        LinkedList ll = new LinkedList();
+        ll.addFirst(1);
+        ll.addFirst(2);
     }
 }

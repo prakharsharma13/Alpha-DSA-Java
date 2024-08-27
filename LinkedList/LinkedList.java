@@ -76,11 +76,11 @@ public class LinkedList {
         temp.next = newNode;
     }
 
-    public int removeFirst(){
-        if(size == 0){
+    public int removeFirst() {
+        if (size == 0) {
             System.out.println("LL is empty!");
             return Integer.MIN_VALUE;
-        }else if(size == 1){
+        } else if (size == 1) {
             int val = head.data;
             head = tail = null;
             size = 0;
@@ -92,18 +92,18 @@ public class LinkedList {
         return val;
     }
 
-    public int removeLast(){
-        if(size == 0){
+    public int removeLast() {
+        if (size == 0) {
             System.out.println("LL is empty!");
-        }else if(size == 1){
+        } else if (size == 1) {
             int val = head.data;
             head = tail = null;
             size = 0;
             return val;
         }
-        //prev : i = size-2;
+        // prev : i = size-2;
         Node prev = head;
-        for(int i=0; i<size-2; i++){
+        for (int i = 0; i < size - 2; i++) {
             prev = prev.next;
         }
 
@@ -113,6 +113,22 @@ public class LinkedList {
         size--;
         return val;
     }
+
+    public int itrSearch(int key) {
+        Node temp = head;
+        int i = 0;
+
+        while (temp != null) {
+            if (temp.data == key) {
+                return i; // key found
+            }
+            temp = temp.next;
+            i++;
+        }
+
+        return -1; //key not found
+    }
+
     public static void main(String args[]) {
         LinkedList ll = new LinkedList();
         ll.addFirst(2);
@@ -126,6 +142,7 @@ public class LinkedList {
         ll.print();
         ll.removeLast();
         ll.print();
-        System.out.println(ll.size);
+        System.out.println(ll.itrSearch(3));
+        System.out.println(ll.itrSearch(10));
     }
 }

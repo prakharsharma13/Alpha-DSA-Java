@@ -5,7 +5,7 @@ public class FirstOccurence {
         if (i == arr.length) {
             return -1;
         }
-        if (i == key) {
+        if (arr[i] == key) {
             return i;
         }
         return firstOccur(arr, key, i + 1);
